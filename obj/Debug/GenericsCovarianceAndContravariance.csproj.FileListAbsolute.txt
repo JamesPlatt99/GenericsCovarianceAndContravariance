@@ -1,0 +1,7 @@
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.csprojResolveAssemblyReference.cache
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.csproj.CoreCompileInputs.cache
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.exe.config
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.exe
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.pdb
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.exe
+C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.pdb
