@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GenericsCovarianceAndContravariance.Countable.Things
 {
-    class Apple : Thing
+    public class Apple : Thing
     {
+        public Apple(Colours colour = Colours.Unknown) : base(colour)
+        {
+        }
     }
 }

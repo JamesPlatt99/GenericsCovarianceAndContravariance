@@ -5,21 +5,8 @@ namespace GenericsCovarianceAndContravariance.Countable.Containers
 {
     class Container<TThing> : ICountable where TThing : Countable.ICountable
     {
-        private List<ICountable> _contents;
-        protected List<ICountable> Contents {
-            get
-            {
-                if(_contents == null)
-                {
-                    _contents = new List<ICountable>();
-                }
-                return _contents;
-            }
-            set
-            {
-                _contents = value;
-            }
-        }
+        protected List<ICountable> _contents = new List<ICountable>();
+        public List<ICountable> Contents { get { return _contents; }}
         protected int _count;
         public int Count
         {
@@ -32,34 +19,18 @@ namespace GenericsCovarianceAndContravariance.Countable.Containers
         {
             if (things != null)
             {
-                this.Contents = things.ToList();
-                _count = Contents.Sum(thing => thing.Count);
+                this._contents = things.ToList();
+                _count = _contents.Sum(thing => thing.Count);
             }
         }
-        public void Add(int amount, Enum type)
+        public void Add(int amount, Enum type, Things.Thing.Colours colour = Things.Thing.Colours.Unknown)
         {
+            ContainerFiller containerFiller = new ContainerFiller();
             for(int i = 0; i < amount; i++)
             {                
-                this.Contents.Add(GetInstanceOfThing(type));
+                this._contents.Add(containerFiller.GetInstanceOfThing(type, colour));
             }
-            _count = Contents.Sum(thing => thing.Count);
+            _count = _contents.Sum(thing => thing.Count);
         }
-        private ICountable GetInstanceOfThing(Enum type)
-        {
-            Things.Thing thing;
-            switch(type){
-                case Program.ThingTypes.Apple:
-                    thing = new Things.Apple();
-                    break;
-                case Program.ThingTypes.Potato:
-                    thing = new Things.Potato();
-                    break;
-                default:
-                    thing = null;
-                    break;
-            }
-            return thing;
-        }
-        public Container() { }
     }
 }

@@ -10,26 +10,30 @@ namespace GenericsCovarianceAndContravariance
     {
         static void Main(string[] args)
         {
-            List<Thing> things = new List<Thing> { new Apple(), new Apple(), new Apple(), new Potato(), new Potato(), new Potato() };
-            List<Box> boxes = new List<Box> { CreateNewBox(2, 4), CreateNewBox(0, 1), CreateNewBox(1, 7) };
+            ContainerFiller containerFiller = new ContainerFiller();
+
+            List<Thing> things = new List<Thing> { new Apple(Apple.Colours.Green), new Apple(Apple.Colours.Green), new Apple(Apple.Colours.Red), new Potato(), new Potato(), new Potato() };
+            List<Box> boxes = new List<Box> { containerFiller.FillNewBox(2, 4, Thing.Colours.Red), containerFiller.FillNewBox(0, 1), containerFiller.FillNewBox(1, 7, Thing.Colours.Green) };
             List<Cart> carts = new List<Cart> {
-                new Cart(new List<Box> { CreateNewBox(6, 1), CreateNewBox(5, 4), CreateNewBox(4, 6) }),
-                new Cart(new List<Box> { CreateNewBox(2, 1), CreateNewBox(3, 4), CreateNewBox(5, 6) }),
-                new Cart(new List<Box> { CreateNewBox(1, 4), CreateNewBox(2, 3), CreateNewBox(5, 0) })
+                new Cart(new List<Box> { containerFiller.FillNewBox(6, 1, Thing.Colours.Red), containerFiller.FillNewBox(5, 4), containerFiller.FillNewBox(4, 6) }),
+                new Cart(new List<Box> { containerFiller.FillNewBox(2, 1), containerFiller.FillNewBox(3, 4), containerFiller.FillNewBox(5, 6) }),
+                new Cart(new List<Box> { containerFiller.FillNewBox(1, 4), containerFiller.FillNewBox(2, 3), containerFiller.FillNewBox(5, 0) })
             };
 
-            Counter<Cart> cartCounter = new Counter<Cart>(carts);            
-            Counter<Box> boxCounter = new Counter<Box>(boxes);            
-            Counter<Thing> thingCounter = new Counter<Thing>(things);
+            CountRules rules = new CountRules();
+
+            Counter<Cart> cartCounter = new Counter<Cart>(carts, rules.CountRedApples);            
+            Counter<Box> boxCounter = new Counter<Box>(boxes, rules.CountAll);            
+            Counter<Thing> thingCounter = new Counter<Thing>(things, rules.CountRedApples);
 
             List<ICountable> counters = new List<ICountable> { cartCounter, boxCounter, thingCounter };
-            Counter<ICountable> counterCounter = new Counter<ICountable>(counters);
+            Counter<ICountable> counterCounter = new Counter<ICountable>(counters, rules.CountAll);
             counters.Add(counterCounter);
 
             DisplayCounts(counters);
 
             Console.ReadLine();
-        }
+        }        
 
         private static void DisplayCounts(List<ICountable> counts)
         {
@@ -37,14 +41,6 @@ namespace GenericsCovarianceAndContravariance
             {
                 Console.WriteLine(counter.Count);
             }
-        }
-
-        private static Box CreateNewBox(int apples, int potatos)
-        {
-            Box box = new Box();
-            box.Add(apples, ThingTypes.Apple);
-            box.Add(potatos, ThingTypes.Potato);
-            return box;
         }
 
         public enum ThingTypes

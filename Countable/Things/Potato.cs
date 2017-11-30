@@ -8,5 +8,8 @@ namespace GenericsCovarianceAndContravariance.Countable.Things
 {
     class Potato : Thing
     {
+        public Potato(Colours colour = Colours.Unknown) : base(colour)
+        {
+        }
     }
 }

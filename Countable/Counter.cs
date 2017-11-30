@@ -7,19 +7,26 @@ using System.Threading.Tasks;
 namespace GenericsCovarianceAndContravariance.Countable
 {
     class Counter<TThing> : ICountable where TThing : ICountable
-    {
+    {      
+        public delegate int Rule(IEnumerable<TThing> things);
+        public int Count { get { return _count;  } }
+
         private int _count;
         private List<TThing> things;
-        public int Count { get { return _count;  } }
-        public Counter(IEnumerable<TThing> things)
+
+        public Counter(IEnumerable<TThing> things, Rule rule)
         {
             this.things = things.ToList();
-            _count = things.Sum(n=>n.Count);
+            _count = GetCount(rule);
         }
         public void Add(TThing item)
         {
             this.things.Add(item);
-            _count = things.Sum(thing => thing.Count);
+        }
+
+        private int GetCount(Rule rule)
+        {
+            return rule(things);
         }
     }
 }

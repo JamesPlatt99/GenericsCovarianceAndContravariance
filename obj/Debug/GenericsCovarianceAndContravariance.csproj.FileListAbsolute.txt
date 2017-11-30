@@ -5,3 +5,10 @@ C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\bin\Debug\Generics
 C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.pdb
 C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.exe
 C:\Users\JMP\source\repos\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.pdb
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.exe.config
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.exe
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\bin\Debug\GenericsCovarianceAndContravariance.pdb
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.csprojResolveAssemblyReference.cache
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.csproj.CoreCompileInputs.cache
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.exe
+C:\LocalProjects\Training\GenericsCovarianceAndContravariance\obj\Debug\GenericsCovarianceAndContravariance.pdb

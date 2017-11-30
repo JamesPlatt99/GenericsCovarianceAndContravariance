@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace GenericsCovarianceAndContravariance.Countable.Things
 {
-    class Thing : ICountable
+    public class Thing : ICountable
     {
-        public Thing()
-        {
-            _count = 1;
-        }
+        public Colours Colour { get { return _colour; } }
+        protected Colours _colour;
+        public int Count{ get { return _count; } }
         private readonly int _count;
-        public int Count
+
+        public Thing(Colours colour = Colours.Unknown)
         {
-            get
-            {
-                return _count;
-            }
+            this._colour = colour;
+            this._count = 1;
         }
+
+        public enum Colours
+        {
+            Unknown,
+            Green,
+            Red
+        };
+
     }
 }
