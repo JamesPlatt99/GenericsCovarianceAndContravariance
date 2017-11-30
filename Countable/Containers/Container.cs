@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace GenericsCovarianceAndContravariance.Countable.Containers
 {
-    class Container<TThing> : ICountable where TThing : Countable.ICountable
+    class Container : ICountable
     {
         protected List<ICountable> _contents = new List<ICountable>();
         public List<ICountable> Contents { get { return _contents; }}

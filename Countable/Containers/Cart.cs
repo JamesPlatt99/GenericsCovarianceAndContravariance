@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericsCovarianceAndContravariance.Countable.Containers
 {
-    class Cart : Container<Box>, ICountable
+    class Cart : Container, ICountable
     {
         public Cart(IEnumerable<Box> things = null) : base(things)
         {
