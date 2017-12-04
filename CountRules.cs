@@ -24,5 +24,14 @@ namespace GenericsCovarianceAndContravariance
                 .Sum(thing => new Counter<ICountable>(((Countable.Containers.Container)thing).Contents, CountRedApples).Count);
             return count;
         }
+        public int CountApples(IEnumerable<ICountable> things)
+        {
+            int count = 0;
+            count = things.Where(thing => thing.GetType() == typeof(Apple))
+                               .Sum(thing => thing.Count);
+            count += things.Where(thing => !(thing.GetType().IsSubclassOf(typeof(Thing))))
+                .Sum(thing => new Counter<ICountable>(((Countable.Containers.Container)thing).Contents, CountApples).Count);
+            return count;
+        }
     }
 }

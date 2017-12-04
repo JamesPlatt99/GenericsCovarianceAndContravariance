@@ -22,11 +22,12 @@ namespace GenericsCovarianceAndContravariance
 
             CountRules rules = new CountRules();
 
-            Counter<Cart> cartCounter = new Counter<Cart>(carts, rules.CountRedApples);            
+            Counter<Cart> cartRedApplesCounter = new Counter<Cart>(carts, rules.CountRedApples);            
+            Counter<Cart> cartAllApplesCounter = new Counter<Cart>(carts, rules.CountApples);
             Counter<Box> boxCounter = new Counter<Box>(boxes, rules.CountAll);            
-            Counter<Thing> thingCounter = new Counter<Thing>(things, rules.CountRedApples);
+            Counter<Thing> thingRedAppleCounter = new Counter<Thing>(things, rules.CountRedApples);
 
-            List<ICountable> counters = new List<ICountable> { cartCounter, boxCounter, thingCounter };
+            List<ICountable> counters = new List<ICountable> { cartRedApplesCounter, cartAllApplesCounter, boxCounter, thingRedAppleCounter };
             Counter<ICountable> counterCounter = new Counter<ICountable>(counters, rules.CountAll);
             counters.Add(counterCounter);
 
